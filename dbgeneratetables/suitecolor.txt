@@ -1,0 +1,19 @@
+php generate/index.php Racing/Masters/RacingColor racing_color_m column:"race_color",type:"string",size:"500",null:"false",unique:"true" column:"description",type:"string",size:"500",null:"false" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Racing/Masters/RacingCapColor racing_cap_color_m column:"race_cap_color",type:"string",size:"500",null:"false",unique:"true" column:"description",type:"string",size:"500",null:"false" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+
+php generate/index.php Racing/Masters/RacingTrackColor racing_track_color_m column:"applying_horse",type:"string",size:"500",null:"false",unique:"true" column:"cloth_color",type:"string",size:"500",null:"false" column:"number_color",type:"string",size:"500",null:"false" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Racing/Masters/RacingAuthority racing_authority_m column:"authority_name",type:"string",size:"500",null:"false",unique:"true" column:"description",type:"string",size:"500" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+
+php generate/index.php Racing/Masters/RacingTrackAllotment racing_track_allotment column:"trainer_id",type:"integer",null:"false",index:"true" column:"horse_id",type:"integer",null:"false",index:"true" column:"track_color_id",type:"integer",null:"false",index:"true" column:"track_number",type:"integer",null:"false",index:"true" column:"allotment_date",type:"date",null:"false",index:"true" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Racing/Masters/RacingSwimmingDetails racing_swimming_details column:"swim_date",type:"date",null:"false",index:"true" column:"horse_id",type:"integer",null:"false",index:"true" column:"number_rounds",type:"integer",null:"false",index:"true" column:"track_number",type:"integer",null:"false",index:"true" column:"allotment_date",type:"date",null:"false",index:"true" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Racing/Transactions/JockeyOutstationWins jockey_outstation_wins column:"jockey_id",type:"integer",null:"false",index:"true" column:"club_id",type:"integer" column:"race_year",type:"integer" column:"race_season",type:"string",size:"10" column:"race_day",type:"integer" column:"race_name",type:"string",size:"200" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Racing/Transactions/OutstationOwnersBanEntry outstation_owners_ban_entry column:"owner_id",type:"integer",null:"false",index:"true" column:"club_id",type:"integer",null:"false",index:"true" column:"ban_type",type:"string",size:"10" column:"ban_amount",type:"double",null:"false" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Racing/Transactions/AgentAuthorization agent_authorization column:"owner_id",type:"integer",null:"false",index:"true" column:"agent_id",type:"integer",null:"false",index:"true" column:"is_agent",type:"string",size:"10" column:"authority_type_id",type:"integer",null:"false" column:"effective_from",type:"date",null:"false" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
