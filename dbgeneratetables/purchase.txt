@@ -1,0 +1,43 @@
+php generate/index.php Purchase/Masters/Categories purchase_categories_m  column:"category_name",type:"string",size:"50",null:"false",unique:"true" column:"description",type:"string",size:"500",null:"false" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Purchase/Masters/SubCategories purchase_subcategories_m  column:"subcategory_name",type:"string",size:"50",null:"false",unique:"true" column:"category_id",type:"integer",null:"false" column:"description",type:"string",size:"500",null:"false" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Purchase/Masters/uom purchase_uom_m  column:"uom_name",type:"string",size:"50",null:"false",unique:"true" column:"description",type:"string",size:"500",null:"false" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+
+php generate/index.php Purchase/Masters/uom purchase_uom_m  column:"uom_name",type:"string",size:"50",null:"false",unique:"true" column:"description",type:"string",size:"500",null:"false" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Purchase/Masters/Materials purchase_materials_m  column:"material_name",type:"string",size:"50",null:"false",unique:"true" column:"category_id",type:"integer",null:"false" column:"subcategory_id",type:"integer",null:"false" column:"uom_id",type:"integer",null:"false" column:"description",type:"string",size:"500",null:"false" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+
+php generate/index.php Core/Masters/FinancialYears core_financial_year_m  column:"financial_year",type:"string",size:"50",null:"false",unique:"true" column:"is_current",type:"string",size:"2" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Veterinary/Transactions/PathologicalTestNorms veterinary_pathological_test_norms column:"test_type_id",type:"integer",null:"false" column:"sample_id",type:"integer",null:"false" column:"parameter_id",type:"integer",null:"false" column:"range_from",type:"integer",null:"false" column:"range_to",type:"integer",null:"false" column:"effective_from",type:"date",null:"false" column:"effective_to",type:"date" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php purchase/Transactions/PurchaseIndentDetails purchase_indent_details column:”indent_id”,type:”integer”,null:"false" column:”indent_category_id”,type:"integer",null:"false" column:”indent_sub_category_id”,type:"integer",null:"false" column:”indent_material_id”,type:"integer",null:"false" column:”indent_specification”,type:”string”,size:”200”,null:"false" column:”indent_quantity”,type:"integer",null:"false" column:”indent_uom_id”,type:"integer",null:"false" column:”indent_stockinhand”,type:"integer",null:"false" column:"indent_due_date",type:"date",null:"false" column:”indent_purpose”,type:”string”,size:”200”,null:"false" column:"indent_pur_price”,type:"integer”,null:"false" column:"indent_pur_date",type:"date",null:"false"
+
+php generate/index.php purchase/Transactions/PurchaseInquiry purchase_inquiry
+column:"indent_id",type:"integer",null:"false"
+column:"financial_year",type:"string",size:"50",null:"false"
+column:"department_id",type:"integer",null:"false"
+column:"enquiry_type",type:"string",size:"200",null:"fale"
+column:"last_quatation_submission",type:"date",null:"false"
+column:"inserted_by",type:"integer",null:"true"
+column:"updated_by",type:"integer",null:"true"
+
+ALTER TABLE `purchase_inquiry` ADD `status` VARCHAR(200) NOT NULL AFTER `last_quotation_submission_date`;
+ALTER TABLE `purchase_inquiry` ADD `indent_date` DATE NULL DEFAULT NULL AFTER `indent_id`;
+
+php generate/index.php purchase/Transactions/PurchaseInquiryDetails purchase_inquiry_details column:"inquiry_id",type:"integer",null:"false" column:"indent_id",type:"integer",null:"false" column:"indent_detail_id",type:"integer",null:"false" column:"indent_material_id",type:"integer",null:"false" column:"status",type:"string",null:"false" column:"approved_by",type:"integer",null:"true" column:"aprroved_date",type:"date",null:"true"
+
+ALTER TABLE `purchase_inquiry_details` ADD `vendor_id` INT NOT NULL AFTER `indent_material_id`;
+
+php generate/index.php purchase/Transactions/PurchaseQuotation purchase_quotation column:"inquiry_id",type:"integer",null:"false" column:"indent_id",type:"integer",null:"false" column:"financial_year",type:"integer",null:"false" column:"quotation_date",type:"date",null:"false" column:"department_id",type:"integer",null:"false" column:"vendor_id",type:"integer",null:"false" column:"quotation_start_date",type:"date",null:"false" column:"quotation_end_date",type:"date",null:"false" column:"remarks",type:"string",size:"200",null:"false" column:"inserted_by",type:"integer",null:"true" column:"updated_by",type:"integer",null:"true"
+
+ALTER TABLE `purchase_quotation` CHANGE `financial_year` `financial_year` VARCHAR(100) NOT NULL;
+
+php generate/index.php purchase/Transactions/PurchaseQuotationDetails purchase_quotation_details column:"quotation_id",type:"integer",null:"false" column:"indent_id",type:"integer",null:"false" column:"indent_category_id",type:"integer",null:"false" column:"indent_sub_category_id",type:"integer",null:"false" column:"indent_material_id",type:"integer",null:"false" column:"indent_quantity",type:"interger",null:"false" column:"unit_rate",type:"integer",null:"false" column:"sgst_percentage",type:"integer",null:"false" column:"sgst_amount",type:"integer",null:"false" column:"cgst_percentage",type:"integer",null:"false" column:"cgst_amount",type:"integer",null:"false" column:"igst_percentage",type:"integer",null:"false" column:"igst_amount",type:"integer",null:"false" column:"cess_percentage",type:"integer",null:"false" column:"cess_amount",type:"integer",null:"false" column:"other_charges",type:"integer",null:"true" column:"total_amount",type:"integer",null:"false" column:"remarks",type:"string",size:"200",null:"true"
+
+
+php generate/index.php purchase/Transactions/PurchasePO purchase_po column:"indent_id",type:"integer",null:"false" column:"inquiry_id",type:"integer",null:"false" column:"financial_year",type:"string",size:"50",null:"false" column:"quotation_date",type:"date",null:"false" column:"department_id",type:"integer",null:"false" column:"vendor_id",type:"integer",null:"false" column:"quotation_start_date",type:"date",null:"false" column:"quotation_end_date",type:"date",null:"false" column:"remarks",type:"string",size:"200",null:"true" column:"quotation_id",type:"integer",null:"false" column:"indent_category_id",type:"integer",null:"false" column:"indent_sub_category_id",type:"integer",null:"false" column:"indent_material_id",type:"integer",null:"false" column:"indent_quantity",type:"integer",null:"false" column:"unit_rate",type:"integer",null:"false" column:"sgst_percentage",type:"integer",null:"true" column:"sgst_amount",type:"integer",null:"true" column:"cgst_percentage",type:"float",null:"true" column:"cgst_amount",type:"float",null:"true" column:"igst_percentage",type:"float",null:"true" column:"igst_amount",type:"float",null:"true" column:"cess_percentage",type:"float",null:"true" column:"cess_amount",type:"float",null:"true" column:"other_charges",type:"float",null:"true" column:"total_amount",type:"float",null:"false" column:"inserted_by",type:"integer",null:"true" column:"updated_by",type:"integer",null:"true"
+

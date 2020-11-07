@@ -1,0 +1,35 @@
+php generate/index.php Racing/Masters/RacingHorseGatePassDetails racing_horse_gatepass_details column:"horse_id",type:"integer",index:"true" column:"trainer_id",type:"integer",index:"true" column:"gatepass_type",type:"string",size:"1",null:"false",index:"true" column:"arriving_from",type:"string",size:"100",null:"true" column:"arriving_date",type:"date",null:"true",index:"true" column:"arrival_date",type:"date",null:"true",index:"true" column:"outgoing_date",type:"date",null:"true",index:"true" column:"remarks",type:"string",size:"500",null:"true" column:"is_vet_approved",type:"integer",index:"true",null:"true" column:"vet_remarks",type:"string",size:"500",null:"true" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Racing/Masters/RacingPartyRegistrations racing_party_registrations column:"party_type",type:"string",size:"10",null:"false",index:"true" column:"party_firstname",type:"string",size:"100",null:"false",index:"true" column:"party_middlename",type:"string",size:"100",null:"true" column:"party_surname",type:"string",size:"100",null:"false",index:"true" column:"party_publicationname",type:"string",size:"100",null:"false",index:"true" column:"party_ownership_type",type:"string",size:"20",null:"true" column:"dob",type:"date",index:"true",null:"false" column:"pan_number",type:"string",size:"20",null:"false" column:"gender",type:"string",size:"2",null:"true" column:"license_type",type:"string",size:"2",null:"false" column:"license_a_with_club_id",type:"integer",null:"true" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Racing/Masters/RacingPartyAddress racing_party_addresses column:"party_registration_id",type:"integer",index:"true" column:"address_type",type:"string",size:"2",null:"false" column:"same_as_communication",type:"integer",null:"false" column:"address1",type:"string",size:"150",null:"false" column:"address2",type:"string",size:"150",null:"true" column:"country_id",type:"integer",index:"true" column:"state_id",type:"integer",index:"true" column:"city_id",type:"integer",index:"true" column:"pincode",type:"string",size:"20",null:"true" column:"phone",type:"string",size:"20",null:"true" column:"alternative_phone",type:"string",size:"20",null:"true" column:"fax",type:"string",size:"20",null:"true" column:"email",type:"string",size:"50",null:"true" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Racing/Masters/RacingPartyBankDetails racing_party_bank_details column:"party_registration_id",type:"integer",index:"true" column:"account_number",type:"string",size:"20",null:"false" column:"bank_name",type:"string",size:"100",null:"false" column:"branch",type:"string",size:"100",null:"false" column:"country_id",type:"integer",index:"true" column:"state_id",type:"integer",index:"true" column:"city_id",type:"integer",index:"true" column:"pincode",type:"string",size:"20",null:"true" column:"address",type:"string",size:"100",null:"true" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Racing/Masters/RacingPartyDocumentDetails racing_party_document_details column:"party_registration_id",type:"integer",index:"true" column:"file_name",type:"string",size:"150",null:"false" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Racing/Transactions/RacingHorseSaleDetails racing_horse_sale column:"horse_id",type:"integer",index:"true" column:"sale_type",type:"string",size:"2" column:"registration_date",type:"date" column:"application_date",type:"date" column:"received_date",type:"date" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+php generate/index.php Racing/Transactions/RacingHorseSellers racing_horse_sellers column:"horse_sale_id",type:"integer",index:"true" column:"horse_id",type:"integer",index:"true" column:"owner_id",type:"integer",index:"true" column:"share",type:"double"
+
+php generate/index.php Racing/Transactions/RacingHorseBuyers racing_horse_buyers column:"horse_sale_id",type:"integer",index:"true" column:"horse_id",type:"integer",index:"true" column:"owner_id",type:"integer",index:"true" column:"share",type:"double"
+
+php generate/index.php Racing/Transactions/RacingHorseContingencyLeaseDetails racing_horse_contingency_lease_details column:"horse_sale_id",type:"integer",index:"true" column:"horse_id",type:"integer",index:"true" column:"sale_type",type:"string",size:"2" column:"cont_lease_amount",type:"double" column:"percentage",type:"double" column:"cont_lease_amount_deducted",type:"double" column:"from_owner_id",type:"integer",index:"true" column:"to_owner_id",type:"integer",index:"true" column:"winning_place",type:"integer" column:"full_payment_date",type:"date",index:"true" column:"cancelled_date",type:"date",index:"true" column:"notes",type:"string",size:"500" column:"account_notes",type:"string",size:"500" column:"cups_to_lesser",type:"integer",index:"true" column:"effective_from",type:"date",index:"true" column:"effective_to",type:"date",index:"true"
+
+php generate/index.php Racing/Transactions/RacingHorseOwnershipDetails racing_horse_ownership_details column:"horse_id",type:"integer",index:"true" column:"owner_id",type:"integer",index:"true" column:"share",type:"double" column:"effective_from",type:"date",index:"true" column:"effective_to",type:"date",index:"true" column:"registration_date",type:"date" column:"application_date",type:"date" column:"received_date",type:"date"
+column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+
+php generate/index.php Racing/Transactions/RacingHorseTrainershipDetails column:"horse_id",type:"integer",index:"true" column:"trainer_id",type:"integer",index:"true" column:"effective_from",type:"date" column:"effective_to",type:"date" column:"inserted_by",type:"integer" column:"updated_by",type:"integer",null:"true"
+
+
+
+
+horse table 
+Horse created status is ogp_type is null or ogp_type = 'T', Show in Horse Arrival New Dropdown
+When IGP generated
+gatepass table
+insert a record with arrival_date IS NULL
+if arrival_date is null show in security
+if arrival _date IS NOT NULL or vet_approved IS 
+
